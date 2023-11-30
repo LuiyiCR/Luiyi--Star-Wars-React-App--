@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import rigoImage from '../../img/rigo-baby.jpg';
 import '../../styles/home.css';
 import { Character } from '../component/CardCharacters.jsx';
+import { Planet } from '../component/CardPlanets.jsx';
+import { Vehicle } from '../component/CardVehicles.jsx';
 
 export const Home = () => {
-  const [characters, setCharacters] = useState([]);
+  // const [characters, setCharacters] = useState([]);
 
   return (
     <div className="card-container">
-      {characters.map((item) => (
-        <Character />
-      ))}
+      <Character />, <Planet />, <Vehicle />
     </div>
   );
 };
