@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import rigoImage from '../../img/rigo-baby.jpg';
 import '../../styles/home.css';
+import { Character } from '../component/CardCharacters.jsx';
 
-export const Home = () => (
-  <div className="text-center mt-5">
-    <h1>Hello Star Wars!!!!</h1>
-    <p>
-      <img src={rigoImage} />
-    </p>
-    <a href="#" className="btn btn-success">
-      If you see this green button, bootstrap is working
-    </a>
-  </div>
-);
+export const Home = () => {
+  const [characters, setCharacters] = useState([]);
+
+  return (
+    <div className="card-container">
+      {characters.map((item) => (
+        <Character />
+      ))}
+    </div>
+  );
+};
