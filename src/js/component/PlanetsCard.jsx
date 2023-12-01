@@ -4,7 +4,7 @@ export const Planet = ({ name }) => (
   <div className="card-group">
     <div className="card" style={{ width: '18rem' }}>
       <img
-        src="https://buntingmagnetics.com/wp-content/uploads/2015/04/400x300.gif"
+        src="https://lumiere-a.akamaihd.net/v1/images/databank_abafar_01_169_475b5d42.jpeg?region=0%2C0%2C1560%2C878"
         className="card-img-top"
         alt="..."
       />

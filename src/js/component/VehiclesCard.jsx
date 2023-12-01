@@ -4,7 +4,7 @@ export const Vehicle = ({ name }) => (
   <div className="card-group">
     <div className="card" style={{ width: '18rem' }}>
       <img
-        src="https://buntingmagnetics.com/wp-content/uploads/2015/04/400x300.gif"
+        src="https://lumiere-a.akamaihd.net/v1/images/a-wing-trainer_72ac4ed9.jpeg?region=0%2C0%2C1559%2C877"
         className="card-img-top"
         alt="..."
       />

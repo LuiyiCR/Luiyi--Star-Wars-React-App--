@@ -3,7 +3,7 @@ import React from 'react';
 export const Character = ({ name }) => (
   <div className="card" style={{ width: '18rem' }}>
     <img
-      src="https://buntingmagnetics.com/wp-content/uploads/2015/04/400x300.gif"
+      src="https://lumiere-a.akamaihd.net/v1/images/burryaga-main_a6f0c574.jpeg?region=0%2C0%2C1920%2C1080"
       className="card-img-top"
       alt="Luke SkyWalker"
     />
