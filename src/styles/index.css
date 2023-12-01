@@ -6,6 +6,13 @@
   box-sizing: border-box;
 }
 
+.card-container {
+  display: grid;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  gap: 10px;
+}
+
 .logo-img {
   max-width: 125px;
 }
