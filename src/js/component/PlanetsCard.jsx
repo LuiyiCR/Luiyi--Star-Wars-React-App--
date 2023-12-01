@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Planet = ({ name }) => (
   <div className="card-group">
@@ -10,9 +11,9 @@ export const Planet = ({ name }) => (
       />
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
-        <a href="">
-          <button className="btn btn-outline-primary">Learn More!</button>
-        </a>
+        <Link to="/details">
+          <button className="btn btn-outline-primary">Planet Details!</button>
+        </Link>
         <button
           className="btn btn-outline-danger
         "
