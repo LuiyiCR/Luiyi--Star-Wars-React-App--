@@ -9,6 +9,8 @@ export const Character = ({ name, gender, hairColor, eyeColor }) => (
         <p className="card-text">{gender}</p>
         <p className="card-text">{hairColor}</p>
         <p className="card-text">{eyeColor}</p>
+        <button>Learn More!</button>
+        <i class="fa-regular fa-heart"></i>
       </div>
     </div>
   </div>
