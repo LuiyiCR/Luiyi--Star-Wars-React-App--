@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const Planet = ({ name }) => (
+export const Planet = ({ name, id }) => (
   <div className="card-group">
     <div className="card" style={{ width: '18rem' }}>
       <img
-        src="https://lumiere-a.akamaihd.net/v1/images/databank_abafar_01_169_475b5d42.jpeg?region=0%2C0%2C1560%2C878"
+        src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
         className="card-img-top"
         alt="..."
+        onError={(e) => {
+          e.target.src =
+            'https://starwars-visualguide.com/assets/img/placeholder.jpg';
+        }}
       />
       <div className="card-body">
         <h5 className="card-title">{name}</h5>

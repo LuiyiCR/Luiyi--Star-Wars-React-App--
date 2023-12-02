@@ -56,24 +56,36 @@ export const Home = () => {
 
   return (
     <div className="characters-container container">
-      <h2>Characters</h2>
+      <h2 className="container mt-1">Characters</h2>
       <div className="card-container">
         {characters.map((characterData) => (
-          <Character key={characterData.uid} name={characterData.name} />
+          <Character
+            id={characterData.uid}
+            key={characterData.uid}
+            name={characterData.name}
+          />
         ))}
       </div>
 
-      <h2>Planets</h2>
+      <h2 className="container mt-4">Planets</h2>
       <div className="card-container">
         {planets.map((planetData) => (
-          <Planet key={planetData.uid} name={planetData.name} />
+          <Planet
+            id={planetData.uid}
+            key={planetData.uid}
+            name={planetData.name}
+          />
         ))}
       </div>
 
-      <h2>Vehicles</h2>
+      <h2 className="container mt-4">Vehicles</h2>
       <div className="card-container">
         {vehicles.map((vehicleData) => (
-          <Vehicle key={vehicleData.uid} name={vehicleData.name} />
+          <Vehicle
+            id={vehicleData.uid}
+            key={vehicleData.uid}
+            name={vehicleData.name}
+          />
         ))}
       </div>
     </div>

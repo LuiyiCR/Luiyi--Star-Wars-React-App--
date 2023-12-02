@@ -5,7 +5,7 @@ import { Context } from '../store/appContext';
 
 import '../../styles/demo.css';
 
-export const Details = ({
+export const CaracterDetails = ({
   name,
   gender,
   eye_color,
