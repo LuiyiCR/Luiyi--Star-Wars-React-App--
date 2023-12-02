@@ -13,6 +13,10 @@
   gap: 10px;
 }
 
+.border-divisor {
+  border: 1px solid red;
+}
+
 .logo-img {
   max-width: 125px;
 }
