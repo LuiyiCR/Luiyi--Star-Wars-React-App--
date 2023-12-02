@@ -14,16 +14,19 @@ export const Character = ({ name, id }) => (
     />
     <div className="card-body">
       <h5 className="card-title">{name}</h5>
-
-      <Link to={`/caracter-details/${id}`}>
-        <button className="btn btn-outline-primary">Character Details!</button>
-      </Link>
-      <button
-        className="btn btn-outline-danger
+      <div className="detail-fav-btn">
+        <Link to={`/caracter-details/${id}`}>
+          <button className="btn btn-outline-primary">
+            Character Details!
+          </button>
+        </Link>
+        <button
+          className="btn btn-outline-danger
         "
-      >
-        <i className="fa-regular fa-heart"></i>
-      </button>
+        >
+          <i className="fa-regular fa-heart"></i>
+        </button>
+      </div>
     </div>
   </div>
 );

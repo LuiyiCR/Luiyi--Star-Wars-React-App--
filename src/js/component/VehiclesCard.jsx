@@ -15,15 +15,19 @@ export const Vehicle = ({ name, id }) => (
       />
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
-        <Link to={`/vehicle-details/${id}`}>
-          <button className="btn btn-outline-primary">Vehicle Details!</button>
-        </Link>
-        <button
-          className="btn btn-outline-danger
-        "
-        >
-          <i className="fa-regular fa-heart"></i>
-        </button>
+        <div className="detail-fav-btn">
+          <Link to={`/vehicle-details/${id}`}>
+            <button className="btn btn-outline-primary">
+              Vehicle Details!
+            </button>
+          </Link>
+          <button
+            className="btn btn-outline-danger
+          "
+          >
+            <i className="fa-regular fa-heart"></i>
+          </button>
+        </div>
       </div>
     </div>
   </div>

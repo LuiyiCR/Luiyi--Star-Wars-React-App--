@@ -15,15 +15,17 @@ export const Planet = ({ name, id }) => (
       />
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
-        <Link to={`/planet-details/${id}`}>
-          <button className="btn btn-outline-primary">Planet Details!</button>
-        </Link>
-        <button
-          className="btn btn-outline-danger
-        "
-        >
-          <i className="fa-regular fa-heart"></i>
-        </button>
+        <div className="detail-fav-btn">
+          <Link to={`/planet-details/${id}`}>
+            <button className="btn btn-outline-primary">Planet Details!</button>
+          </Link>
+          <button
+            className="btn btn-outline-danger
+          "
+          >
+            <i className="fa-regular fa-heart"></i>
+          </button>
+        </div>
       </div>
     </div>
   </div>

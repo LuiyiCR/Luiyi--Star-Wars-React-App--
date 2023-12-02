@@ -20,6 +20,11 @@
   object-position: center top;
 }
 
+.detail-fav-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
 .border-divisor {
   border: 1px solid red;
 }
