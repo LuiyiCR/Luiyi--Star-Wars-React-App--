@@ -6,30 +6,32 @@ import { Context } from '../store/appContext';
 
 import '../../styles/demo.css';
 
-export const CaracterDetails = ({
+export const VehicleDetails = ({
   name,
-  gender,
-  eye_color,
-  hair_color,
-  skin_color,
-  height,
+  cargo_capacity,
+  consumables,
+  cost_in_credits,
+  crew,
+  passengers,
 }) => {
   const { id } = useParams();
-  const [detailCharacters, setDetailCharacters] = useState({});
+  const [detailVehicles, setDetailVehicles] = useState({});
 
   useEffect(() => {
-    const fetchDetailCharacters = async () => {
+    const fetchDetailVehicles = async () => {
       try {
-        const response = await fetch(`https://www.swapi.tech/api/people/${id}`);
+        const response = await fetch(
+          `https://www.swapi.tech/api/vehicles/${id}`
+        );
         const data = await response.json();
-        console.log('Fetched data Character Details:', data);
-        setDetailCharacters(data.result.properties);
+        console.log('Fetched data Vehicle Details:', data);
+        setDetailVehicles(data.result.properties);
       } catch (error) {
-        console.error('Error fetching characters details:', error);
+        console.error('Error fetching Vehicle Details:', error);
       }
     };
 
-    fetchDetailCharacters();
+    fetchDetailVehicles();
   }, []);
 
   return (
@@ -37,7 +39,7 @@ export const CaracterDetails = ({
       <div className="row g-0">
         <div className="col">
           <img
-            src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+            src={`https://starwars-visualguide.com/assets/img/vehicles/${id}.jpg`}
             className="img-fluid"
             alt="..."
             onError={(e) => {
@@ -48,7 +50,7 @@ export const CaracterDetails = ({
         </div>
         <div className="col">
           <div className="card-body">
-            <h2 className="card-title">{detailCharacters.name}</h2>
+            <h2 className="card-title">{detailVehicles.name}</h2>
             <p className="card-text">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Consequatur rem neque quidem.
@@ -57,11 +59,11 @@ export const CaracterDetails = ({
         </div>
         <span className="border-divisor mt-5"></span>
         <div className="container mt-1 text-danger">
-          <p className="card-text">{`Gender: ${detailCharacters.gender}`}</p>
-          <p className="card-text">{`Eye Color: ${detailCharacters.eye_color}`}</p>
-          <p className="card-text">{`Hair Color ${detailCharacters.hair_color}`}</p>
-          <p className="card-text">{`Skin Color: ${detailCharacters.skin_color}`}</p>
-          <p className="card-text">{`Height: ${detailCharacters.height}`}</p>
+          <p className="card-text">{`Cargo Capacity: ${detailVehicles.cargo_capacity}`}</p>
+          <p className="card-text">{`Consumables: ${detailVehicles.consumables}`}</p>
+          <p className="card-text">{`Cost in Credits: ${detailVehicles.cost_in_credits}`}</p>
+          <p className="card-text">{`Crew: ${detailVehicles.crew}`}</p>
+          <p className="card-text">{`Passengers: ${detailVehicles.passengers}`}</p>
         </div>
       </div>
     </div>
