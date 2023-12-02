@@ -15,7 +15,7 @@ export const Character = ({ name, id }) => (
     <div className="card-body">
       <h5 className="card-title">{name}</h5>
 
-      <Link to="/caracter-details">
+      <Link to={`/caracter-details/${id}`}>
         <button className="btn btn-outline-primary">Character Details!</button>
       </Link>
       <button

@@ -23,7 +23,7 @@ const Layout = () => {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/caracter-details" element={<CaracterDetails />} />
+            <Route path="/caracter-details/:id" element={<CaracterDetails />} />
             <Route path="/single/:theid" element={<Single />} />
             <Route path="*" element={<h1>Not found!</h1>} />
           </Routes>
