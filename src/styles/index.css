@@ -6,6 +6,17 @@
   box-sizing: border-box;
 }
 
+.fav-counter-container {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(244, 194, 194);
+  margin-left: 5px;
+  color: red;
+  font-weight: 600;
+}
+
 .card-container {
   display: grid;
   grid-auto-flow: column;

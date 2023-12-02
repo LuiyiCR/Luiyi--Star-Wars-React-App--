@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Context } from '../store/appContext';
 
 export const Character = ({ name, id }) => (
   <div className="card" style={{ width: '18rem' }}>
@@ -23,6 +24,10 @@ export const Character = ({ name, id }) => (
         <button
           className="btn btn-outline-danger
         "
+          onClick={() => {
+            actions.incrementFavoritesCounter();
+            console.log('You picked a favorite!!');
+          }}
         >
           <i className="fa-regular fa-heart"></i>
         </button>
