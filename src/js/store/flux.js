@@ -66,6 +66,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         const newCounter = store.favoritesCounter - 1;
         setStore({ favoritesCounter: newCounter, selectedFavorites });
       },
+      setSelectedCharacter: (character) => {
+        setStore({ selectedCharacter: character });
+      },
     },
   };
 };
