@@ -47,7 +47,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         );
 
         if (!isFavoriteAlreadySelected) {
-          if (favorite.uid && favorite.name) {
+          if (favorite.uid && favorite.name && favorite.type) {
             const newCounter = store.favoritesCounter + 1;
             const selectedFavorites = [...store.selectedFavorites, favorite];
             setStore({ favoritesCounter: newCounter, selectedFavorites });
@@ -65,9 +65,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         );
         const newCounter = store.favoritesCounter - 1;
         setStore({ favoritesCounter: newCounter, selectedFavorites });
-      },
-      setSelectedCharacter: (character) => {
-        setStore({ selectedCharacter: character });
       },
     },
   };

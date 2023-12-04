@@ -36,12 +36,30 @@ export const Navbar = () => {
               <li key={`favorite-${index}`}>
                 {favorite.uid && (
                   <div className="d-flex justify-content-between align-items-center">
-                    <Link
-                      to={`/caracter-details/${favorite.uid}`}
-                      className="dropdown-item"
-                    >
-                      {favorite.name}
-                    </Link>
+                    {favorite.type === 'character' && (
+                      <Link
+                        to={`/caracter-details/${favorite.uid}`}
+                        className="dropdown-item"
+                      >
+                        {favorite.name}
+                      </Link>
+                    )}
+                    {favorite.type === 'planet' && (
+                      <Link
+                        to={`/planet-details/${favorite.uid}`}
+                        className="dropdown-item"
+                      >
+                        {favorite.name}
+                      </Link>
+                    )}
+                    {favorite.type === 'vehicle' && (
+                      <Link
+                        to={`/vehicle-details/${favorite.uid}`}
+                        className="dropdown-item"
+                      >
+                        {favorite.name}
+                      </Link>
+                    )}
                     <button
                       className="btn btn-outline-danger btn-sm m-2"
                       onClick={() => actions.removeFavorite(favorite)}

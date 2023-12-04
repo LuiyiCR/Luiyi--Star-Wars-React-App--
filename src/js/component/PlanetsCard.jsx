@@ -29,8 +29,12 @@ export const Planet = ({ name, id }) => {
               className="btn btn-outline-danger
           "
               onClick={() => {
-                actions.incrementFavoritesCounter();
-                console.log('You picked a favorite!!');
+                actions.incrementFavoritesCounter({
+                  uid: id,
+                  name,
+                  type: 'planet',
+                });
+                console.log('You picked a favorite planet!!');
               }}
             >
               <i className="fa-regular fa-heart"></i>

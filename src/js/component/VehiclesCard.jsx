@@ -29,8 +29,12 @@ export const Vehicle = ({ name, id }) => {
               className="btn btn-outline-danger
           "
               onClick={() => {
-                actions.incrementFavoritesCounter();
-                console.log('You picked a favorite!!');
+                actions.incrementFavoritesCounter({
+                  uid: id,
+                  name,
+                  type: 'vehicle',
+                });
+                console.log('You picked a favorite vehicle!!');
               }}
             >
               <i className="fa-regular fa-heart"></i>

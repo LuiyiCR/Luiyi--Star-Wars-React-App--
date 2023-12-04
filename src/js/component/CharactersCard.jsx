@@ -40,7 +40,7 @@ export const Character = ({ name, id }) => {
                 type: 'character',
               });
 
-              console.log('You picked a favorite!!');
+              console.log('You picked a favorite character!!');
             }}
           >
             <i className="fa-regular fa-heart"></i>
