@@ -34,11 +34,11 @@ export const Character = ({ name, id }) => {
                 type: 'character',
               });
 
-              actions.setSelectedCharacter({
-                uid: id,
-                name,
-                type: 'character',
-              });
+              // actions.setSelectedCharacter({
+              //   uid: id,
+              //   name,
+              //   type: 'character',
+              // });
 
               console.log('You picked a favorite character!!');
             }}

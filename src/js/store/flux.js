@@ -43,9 +43,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
 
         const isFavoriteAlreadySelected = store.selectedFavorites.some(
-          (fav) => fav.uid === favorite.uid
+          (fav) => fav.name === favorite.name
         );
-
+        console.log(isFavoriteAlreadySelected);
         if (!isFavoriteAlreadySelected) {
           if (favorite.uid && favorite.name && favorite.type) {
             const newCounter = store.favoritesCounter + 1;
