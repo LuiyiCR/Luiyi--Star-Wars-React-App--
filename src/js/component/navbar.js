@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Context } from '../store/appContext';
 
 export const Navbar = () => {
-  const { store } = useContext(Context);
-  const favCounter = store.favoritesCounter;
+  const { store, actions } = useContext(Context);
+  const { favoritesCounter, selectedFavorites } = store;
 
   return (
     <nav className="navbar navbar-light bg-light mb-3 container">
@@ -26,21 +26,26 @@ export const Navbar = () => {
         >
           Favorites
           <span className="fav-counter-container d-flex justify-content-center align-items-center">
-            <span className="fav-counter">{favCounter}</span>
+            <span className="fav-counter">{favoritesCounter}</span>
           </span>
         </button>
 
         <ul className="dropdown-menu" aria-labelledby="btnGroupDrop1">
-          <li>
-            <a className="dropdown-item" href="#">
-              Dropdown link
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Dropdown link
-            </a>
-          </li>
+          {selectedFavorites.length > 0 &&
+            selectedFavorites.map((favorite, index) => (
+              <li key={`favorite-${index}`}>
+                {favorite.uid && (
+                  <a className="dropdown-item" href="#">
+                    {favorite.name}
+                  </a>
+                )}
+              </li>
+            ))}
+          {selectedFavorites.length === 0 && (
+            <li key="no-favorites">
+              <span className="dropdown-item">No favorites selected</span>
+            </li>
+          )}
         </ul>
       </div>
     </nav>

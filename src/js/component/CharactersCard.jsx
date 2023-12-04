@@ -28,7 +28,11 @@ export const Character = ({ name, id }) => {
             className="btn btn-outline-danger
         "
             onClick={() => {
-              actions.incrementFavoritesCounter();
+              actions.incrementFavoritesCounter({
+                uid: id,
+                name,
+                type: 'character',
+              });
               console.log('You picked a favorite!!');
             }}
           >

@@ -14,6 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
       ],
       favoritesCounter: 0,
+      selectedFavorites: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -37,10 +38,34 @@ const getState = ({ getStore, getActions, setStore }) => {
         //reset the global store
         setStore({ demo: demo });
       },
-      incrementFavoritesCounter: () => {
+
+      incrementFavoritesCounter: (favorite) => {
         const store = getStore();
-        const newCounter = store.favoritesCounter + 1;
-        setStore({ favoritesCounter: newCounter });
+
+        // Check if the favorite is already selected
+        const isFavoriteAlreadySelected = store.selectedFavorites.some(
+          (fav) => fav.uid === favorite.uid
+        );
+
+        if (!isFavoriteAlreadySelected) {
+          // Make sure that the selected favorite contains uid and name properties
+          if (favorite.uid && favorite.name) {
+            const newCounter = store.favoritesCounter + 1;
+            const selectedFavorites = [...store.selectedFavorites, favorite];
+            setStore({ favoritesCounter: newCounter, selectedFavorites });
+            console.log('You picked a favorite!!');
+          } else {
+            console.error('Invalid favorite object:', favorite);
+          }
+        }
+      },
+
+      removeFavorite: (favorite) => {
+        const store = getStore();
+        const selectedFavorites = store.selectedFavorites.filter(
+          (fav) => fav.uid !== favorite.uid
+        );
+        setStore({ selectedFavorites });
       },
     },
   };
