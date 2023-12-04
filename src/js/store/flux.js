@@ -42,13 +42,11 @@ const getState = ({ getStore, getActions, setStore }) => {
       incrementFavoritesCounter: (favorite) => {
         const store = getStore();
 
-        // Check if the favorite is already selected
         const isFavoriteAlreadySelected = store.selectedFavorites.some(
           (fav) => fav.uid === favorite.uid
         );
 
         if (!isFavoriteAlreadySelected) {
-          // Make sure that the selected favorite contains uid and name properties
           if (favorite.uid && favorite.name) {
             const newCounter = store.favoritesCounter + 1;
             const selectedFavorites = [...store.selectedFavorites, favorite];
@@ -65,7 +63,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         const selectedFavorites = store.selectedFavorites.filter(
           (fav) => fav.uid !== favorite.uid
         );
-        setStore({ selectedFavorites });
+        const newCounter = store.favoritesCounter - 1;
+        setStore({ favoritesCounter: newCounter, selectedFavorites });
       },
     },
   };
