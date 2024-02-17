@@ -43,11 +43,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
 
         const isFavoriteAlreadySelected = store.selectedFavorites.some(
-          (fav) => fav.name === favorite.name
+          (fav) => fav.uid === favorite.uid
         );
         console.log(isFavoriteAlreadySelected);
         if (!isFavoriteAlreadySelected) {
           if (favorite.uid && favorite.name && favorite.type) {
+            favorite.isSelected = true;
+
             const newCounter = store.favoritesCounter + 1;
             const selectedFavorites = [...store.selectedFavorites, favorite];
             setStore({ favoritesCounter: newCounter, selectedFavorites });
@@ -60,11 +62,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       removeFavorite: (favorite) => {
         const store = getStore();
-        const selectedFavorites = store.selectedFavorites.filter(
-          (fav) => fav.uid !== favorite.uid
+
+        const isFavoriteAlreadySelected = store.selectedFavorites.some(
+          (fav) => fav.uid === favorite.uid
         );
-        const newCounter = store.favoritesCounter - 1;
-        setStore({ favoritesCounter: newCounter, selectedFavorites });
+
+        if (isFavoriteAlreadySelected) {
+          const selectedFavorites = store.selectedFavorites.filter(
+            (fav) => fav.uid !== favorite.uid
+          );
+          favorite.isSelected = false;
+
+          const newCounter = store.favoritesCounter - 1;
+          setStore({ favoritesCounter: newCounter, selectedFavorites });
+        }
       },
     },
   };

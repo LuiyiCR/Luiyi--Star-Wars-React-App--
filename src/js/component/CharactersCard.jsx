@@ -3,7 +3,17 @@ import { Link } from 'react-router-dom';
 import { Context } from '../store/appContext';
 
 export const Character = ({ name, id }) => {
-  const { actions } = useContext(Context);
+  const { store, actions } = useContext(Context);
+
+  const isFavorite = store.selectedFavorites.some((fav) => fav.uid === id);
+
+  const handleFavoriteClick = () => {
+    if (isFavorite) {
+      actions.removeFavorite({ uid: id, name, type: 'character' });
+    } else {
+      actions.incrementFavoritesCounter({ uid: id, name, type: 'character' });
+    }
+  };
 
   return (
     <div className="card" style={{ width: '18rem' }}>
@@ -25,25 +35,14 @@ export const Character = ({ name, id }) => {
             </button>
           </Link>
           <button
-            className="btn btn-outline-danger
-        "
-            onClick={() => {
-              actions.incrementFavoritesCounter({
-                uid: id,
-                name,
-                type: 'character',
-              });
-
-              // actions.setSelectedCharacter({
-              //   uid: id,
-              //   name,
-              //   type: 'character',
-              // });
-
-              console.log('You picked a favorite character!!');
-            }}
+            className="btn btn-outline-danger"
+            onClick={handleFavoriteClick}
           >
-            <i className="fa-regular fa-heart"></i>
+            <i
+              className={
+                isFavorite ? 'fa-solid fa-heart' : 'fa-regular fa-heart'
+              }
+            ></i>
           </button>
         </div>
       </div>
