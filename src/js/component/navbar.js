@@ -7,7 +7,7 @@ export const Navbar = () => {
   const { favoritesCounter, selectedFavorites } = store;
 
   return (
-    <nav className="navbar navbar-light bg-light mb-3 container">
+    <nav className="navbar navbar-light bg-light mb-3 container sticky-top">
       <Link to="/">
         <img
           src="https://download.logo.wine/logo/Star_Wars/Star_Wars-Logo.wine.png"
@@ -15,6 +15,7 @@ export const Navbar = () => {
           className="navbar-brand logo-img"
         />
       </Link>
+      <h3>May the force be with you!</h3>
       <div className="btn-group" role="group">
         <button
           id="btnGroupDrop1"

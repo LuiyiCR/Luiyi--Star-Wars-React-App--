@@ -3,7 +3,17 @@ import { Link } from 'react-router-dom';
 import { Context } from '../store/appContext';
 
 export const Planet = ({ name, id }) => {
-  const { actions } = useContext(Context);
+  const { store, actions } = useContext(Context);
+
+  const isFavorite = store.selectedFavorites.some((fav) => fav.uid === id);
+
+  const handleFavoriteClick = () => {
+    if (isFavorite) {
+      actions.removeFavorite({ uid: id, name, type: 'planet' });
+    } else {
+      actions.incrementFavoritesCounter({ uid: id, name, type: 'planet' });
+    }
+  };
 
   return (
     <div className="card-group">
@@ -28,16 +38,13 @@ export const Planet = ({ name, id }) => {
             <button
               className="btn btn-outline-danger
           "
-              onClick={() => {
-                actions.incrementFavoritesCounter({
-                  uid: id,
-                  name,
-                  type: 'planet',
-                });
-                console.log('You picked a favorite planet!!');
-              }}
+              onClick={handleFavoriteClick}
             >
-              <i className="fa-regular fa-heart"></i>
+              <i
+                className={
+                  isFavorite ? 'fa-solid fa-heart' : 'fa-regular fa-heart'
+                }
+              ></i>
             </button>
           </div>
         </div>
