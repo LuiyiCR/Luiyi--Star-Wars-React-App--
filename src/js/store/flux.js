@@ -43,9 +43,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
 
         const isFavoriteAlreadySelected = store.selectedFavorites.some(
-          (fav) => fav.uid === favorite.uid
+          (fav) => fav.uid === favorite.uid && fav.type === favorite.type
         );
         console.log(isFavoriteAlreadySelected);
+
         if (!isFavoriteAlreadySelected) {
           if (favorite.uid && favorite.name && favorite.type) {
             favorite.isSelected = true;
@@ -64,12 +65,12 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
 
         const isFavoriteAlreadySelected = store.selectedFavorites.some(
-          (fav) => fav.uid === favorite.uid
+          (fav) => fav.uid === favorite.uid && fav.type === favorite.type
         );
 
         if (isFavoriteAlreadySelected) {
           const selectedFavorites = store.selectedFavorites.filter(
-            (fav) => fav.uid !== favorite.uid
+            (fav) => !(fav.uid === favorite.uid && fav.type === favorite.type)
           );
           favorite.isSelected = false;
 

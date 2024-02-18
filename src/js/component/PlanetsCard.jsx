@@ -5,7 +5,9 @@ import { Context } from '../store/appContext';
 export const Planet = ({ name, id }) => {
   const { store, actions } = useContext(Context);
 
-  const isFavorite = store.selectedFavorites.some((fav) => fav.uid === id);
+  const isFavorite = store.selectedFavorites.some(
+    (fav) => fav.uid === id && fav.type === 'planet' && fav.isSelected
+  );
 
   const handleFavoriteClick = () => {
     if (isFavorite) {
